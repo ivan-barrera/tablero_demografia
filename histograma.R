@@ -8,8 +8,10 @@ ind_dem <- read_xlsx("./Datos/5_Indicadores_demográficos_proyecciones.xlsx")
 ind_dem <- ind_dem |> clean_names() |> select(-renglon)
 
 tmi_2025 <- ind_dem |>
-  filter(ano == 2025, cve_geo >= 0) |>
+  filter(ano == 2025, cve_geo > 0) |>
   select(entidad, cve_geo, tmi)
+
+rango <- range(tmi_2025$tmi, na.rm = TRUE)
 
 hist <- tmi_2025 |>
   ggplot(aes(x = tmi)) +
@@ -30,6 +32,5 @@ box <- tmi_2025 |>
         axis.title.x = element_blank()
       )
 
-hist / box +
-  plot_layout(heights = c(3,1))
-
+hist + box +
+  plot_layout(heights = c(2,1))

@@ -53,3 +53,14 @@ datos_piramide_2025 |>
   theme_minimal(base_size = 16) + 
   theme(legend.position = "bottom")
 
+anios <- unique(pob_mit$AÑO)
+
+save(anios, file = "./Datos/anios.RData")
+
+entidades <- unique(pob_mit$ENTIDAD)
+
+save(entidades, file = "./Datos/entidades.RData")
+
+indicadores <- read_xlsx("./Datos/tabla_indicadores.xlsx")
+
+save(indicadores, file = "./Datos/indicadores.RData")
