@@ -1,0 +1,2 @@
+load("/Users/ivan/Documents/R_Projects/tablero_demografia/Datos/entidades.RData")
+entidades

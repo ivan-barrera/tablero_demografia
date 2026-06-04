@@ -30,6 +30,7 @@ ind_dem <- ind_dem |>
 
 save(ind_dem, file = "./Datos/ind_dem.RData")
 
+
 trans <- ind_dem |>
   select(ano, cve_geo, t_bru_nat, t_bru_mor) |> 
   filter(cve_geo == 0)
